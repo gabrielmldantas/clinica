@@ -9,7 +9,7 @@
         <!--Coberturas-->
         <scene sceneID="3qb-G0-MAz">
             <objects>
-                <tableViewController id="Mg1-PT-z3v" customClass="CoberturaTableViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Mg1-PT-z3v" customClass="CoberturaTableViewController" customModule="Clinica_DDM" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="d6p-Jy-ZDG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
         <!--Cadastrar Cobertura-->
         <scene sceneID="mdc-gF-dvX">
             <objects>
-                <tableViewController id="e2k-sG-NUf" customClass="CoberturaViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="e2k-sG-NUf" customClass="CoberturaViewController" customModule="Clinica_DDM" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ehd-hG-Kea">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,7 +104,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="DaB-Tm-jCq">
                             <connections>
-                                <action selector="save:" destination="950-3J-OvP" id="Mbz-dg-xE1"/>
+                                <action selector="save:" destination="e2k-sG-NUf" id="cwR-wY-nWc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -115,7 +115,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFY-lg-tt3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="950-3J-OvP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1873.913043478261" y="67.663043478260875"/>
         </scene>

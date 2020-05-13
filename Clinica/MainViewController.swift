@@ -67,6 +67,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.performSegue(withIdentifier: "Paciente", sender: nil)
             } else if selectedMenu == "Usuário" {
                 self.performSegue(withIdentifier: "Usuario", sender: nil)
+            } else if selectedMenu == "Consulta" {
+                self.performSegue(withIdentifier: "Consulta", sender: nil)
             }
         }
     }
