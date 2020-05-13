@@ -168,10 +168,16 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
             }
         case let .failure(error):
             DispatchQueue.main.async {
+                var errorMessage = error.errorDescription ?? "Erro desconhecido, por favor tente novamente"
+                if response.data != nil {
+                    let message = String(bytes: response.data!, encoding: .utf8)!
+                    if !message.isEmpty {
+                        errorMessage = message
+                    }
+                }
                 let alert = UIUtilities.createDefaultAlert(
                     title: "Erro",
-                    message: error.errorDescription ??
-                        "Erro desconhecido, por favor tente novamente")
+                    message: errorMessage)
                 self.loadingIndicator
                     .dismiss(animated: true,
                              completion: { UIUtilities.showAlert(controller: self, alert: alert) })
@@ -186,10 +192,16 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
             especialidadePicker.reloadComponent(0)
         case let .failure(error):
             DispatchQueue.main.async {
+                var errorMessage = error.errorDescription ?? "Erro desconhecido, por favor tente novamente"
+                if response.data != nil {
+                    let message = String(bytes: response.data!, encoding: .utf8)!
+                    if !message.isEmpty {
+                        errorMessage = message
+                    }
+                }
                 let alert = UIUtilities.createDefaultAlert(
                     title: "Erro",
-                    message: error.errorDescription ??
-                        "Erro desconhecido, por favor tente novamente")
+                    message: errorMessage)
                 self.loadingIndicator
                     .dismiss(animated: true,
                              completion: { UIUtilities.showAlert(controller: self, alert: alert) })

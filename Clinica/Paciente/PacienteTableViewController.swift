@@ -96,11 +96,19 @@ class PacienteTableViewController: UITableViewController, CrudViewDelegate {
             }
         case let .failure(error):
             DispatchQueue.main.async {
-                self.refreshControl?.endRefreshing()
+                var errorMessage = error.errorDescription ?? "Erro desconhecido, por favor tente novamente"
+                if response.data != nil {
+                    let message = String(bytes: response.data!, encoding: .utf8)!
+                    if !message.isEmpty {
+                        errorMessage = message
+                    }
+                }
                 let alert = UIUtilities.createDefaultAlert(
                     title: "Erro",
-                    message: error.errorDescription ?? "Erro desconhecido, por favor tente novamente")
-                UIUtilities.showAlert(controller: self, alert: alert)
+                    message: errorMessage)
+                self.loadingIndicator
+                    .dismiss(animated: true,
+                             completion: { UIUtilities.showAlert(controller: self, alert: alert) })
             }
         }
     }
