@@ -3,7 +3,6 @@
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -66,7 +65,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Fv-LP-PGR">
                             <connections>
-                                <segue destination="oZx-oF-ip0" kind="show" identifier="AdicionarMedico" id="28M-mj-8vs"/>
+                                <segue destination="IPE-c5-sTh" kind="show" identifier="AdicionarMedico" id="ozG-bq-kun"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -76,96 +75,121 @@
             <point key="canvasLocation" x="915.94202898550736" y="68.478260869565219"/>
         </scene>
         <!--Cadastrar Médico-->
-        <scene sceneID="xJ6-tS-yOR">
+        <scene sceneID="7Bj-Mm-fb4">
             <objects>
-                <viewController id="oZx-oF-ip0" customClass="MedicoViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wC7-cG-5be">
+                <tableViewController id="IPE-c5-sTh" customClass="MedicoViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ypD-lZ-dHU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKV-Ey-uXV">
-                                <rect key="frame" x="20" y="67" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2O8-ws-QS1">
-                                <rect key="frame" x="20" y="96" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="oZx-oF-ip0" id="UbR-Qm-yKo"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CRM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xom-0g-6Dy">
-                                <rect key="frame" x="20" y="154" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VNw-AA-vjw">
-                                <rect key="frame" x="20" y="189" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="oZx-oF-ip0" id="vsq-IC-MCy"/>
-                                </connections>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j1A-op-PUK">
-                                <rect key="frame" x="130" y="154" width="264" height="103"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="oZx-oF-ip0" id="4tm-91-4NH"/>
-                                    <outlet property="delegate" destination="oZx-oF-ip0" id="v3f-II-Qlh"/>
-                                </connections>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Especialidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biD-Tg-vBD">
-                                <rect key="frame" x="20" y="274" width="106" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-Md-OqQ">
-                                <rect key="frame" x="20" y="319" width="374" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="oZx-oF-ip0" id="ehp-sO-OFp"/>
-                                    <outlet property="delegate" destination="oZx-oF-ip0" id="mj1-Yo-fQL"/>
-                                </connections>
-                            </pickerView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="ByI-sf-WhP"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Cadastrar Médico" id="UFm-iW-x6l">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Ti-Fr-Zc3">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection headerTitle="Dados Pessoais" id="Axu-5J-tTM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="CbV-EH-Ye1">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CbV-EH-Ye1" id="s6U-lt-y8R">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyI-ZO-Tye">
+                                                    <rect key="frame" x="20" y="22" width="46" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vRa-Wo-Jva">
+                                                    <rect key="frame" x="74" y="16" width="320" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="CRM" id="9fN-vM-Dyf">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="mtn-fU-SkY">
+                                        <rect key="frame" x="0.0" y="176.33333206176758" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mtn-fU-SkY" id="RV3-sF-O0Q">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Número" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vu8-tI-aZU">
+                                                    <rect key="frame" x="20" y="15" width="97" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                                </textField>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUH-WU-fVz">
+                                                    <rect key="frame" x="125" y="0.0" width="269" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="IPE-c5-sTh" id="X0Y-be-0Xv"/>
+                                                        <outlet property="delegate" destination="IPE-c5-sTh" id="aHa-79-aCP"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Especialidade" id="eky-64-q25">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="htT-YI-8tx">
+                                        <rect key="frame" x="0.0" y="297.33333206176758" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="htT-YI-8tx" id="u3B-tb-J0c">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7q-FQ-1Xa">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="IPE-c5-sTh" id="hGV-zy-KdS"/>
+                                                        <outlet property="delegate" destination="IPE-c5-sTh" id="6rm-l6-slT"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="IPE-c5-sTh" id="Bu8-Am-VPW"/>
+                            <outlet property="delegate" destination="IPE-c5-sTh" id="r4k-O7-Qld"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cadastrar Médico" id="Ilf-JJ-3BI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LwV-of-LVm">
                             <connections>
-                                <action selector="cancel:" destination="oZx-oF-ip0" id="JfP-Bf-GNl"/>
+                                <action selector="cancel:" destination="IPE-c5-sTh" id="Wga-2c-adW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="aX5-TL-tp6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ji1-V9-LEe">
                             <connections>
-                                <action selector="save:" destination="oZx-oF-ip0" id="lsj-Ys-xbI"/>
+                                <action selector="save:" destination="IPE-c5-sTh" id="Xub-dS-c0n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="1Ti-Fr-Zc3" id="5me-Hx-x8e"/>
-                        <outlet property="especialidade" destination="1hI-Md-OqQ" id="pp0-VZ-Zx7"/>
-                        <outlet property="nomeMedico" destination="2O8-ws-QS1" id="SmH-SG-noS"/>
-                        <outlet property="numeroCrm" destination="VNw-AA-vjw" id="y7S-KD-TKr"/>
-                        <outlet property="saveButton" destination="aX5-TL-tp6" id="fhy-h3-m9n"/>
-                        <outlet property="ufCrm" destination="j1A-op-PUK" id="l9z-R8-45j"/>
+                        <outlet property="cancelButton" destination="LwV-of-LVm" id="kWe-C7-RPv"/>
+                        <outlet property="especialidade" destination="W7q-FQ-1Xa" id="PEY-T1-Wla"/>
+                        <outlet property="nomeMedico" destination="vRa-Wo-Jva" id="6Rd-87-eXc"/>
+                        <outlet property="numeroCrm" destination="Vu8-tI-aZU" id="6Ly-EF-gn5"/>
+                        <outlet property="saveButton" destination="Ji1-V9-LEe" id="2zy-1N-MEc"/>
+                        <outlet property="ufCrm" destination="XUH-WU-fVz" id="8lf-MI-qNy"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ioO-R1-bYn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l8X-j4-Cve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844.9275362318842" y="67.663043478260875"/>
+            <point key="canvasLocation" x="1850.7246376811595" y="67.663043478260875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Glt-Rp-cpg">

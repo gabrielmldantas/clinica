@@ -9,25 +9,24 @@
 import UIKit
 import Alamofire
 
-class EspecialidadeViewController: UITableViewController, UITextFieldDelegate {
+class CoberturaViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var descricaoEspecialidade: UITextField!
+    @IBOutlet weak var descricaoCobertura: UITextField!
     
-    private let especialidadeService = EspecialidadeService()
+    private let coberturaService = CoberturaService()
     private let loadingIndicator = UIUtilities.createLoadingIndicator()
     var crudViewDelegate: CrudViewDelegate?
-    var especialidade: Especialidade!
+    var cobertura: Cobertura!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        descricaoEspecialidade.delegate = self
         
-        if especialidade == nil {
-            especialidade = Especialidade()
+        if cobertura == nil {
+            cobertura = Cobertura()
         } else {
-            descricaoEspecialidade.text = especialidade.descricao
+            descricaoCobertura.text = cobertura.descricao
         }
         
         updateSaveButtonState()
@@ -42,12 +41,12 @@ class EspecialidadeViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func save(_ sender: Any) {
         UIUtilities.showAlert(controller: self, alert: loadingIndicator)
         
-        especialidade.descricao = trimWhitespace(value: descricaoEspecialidade.text)
+        cobertura.descricao = trimWhitespace(value: descricaoCobertura.text)
 
-        if especialidade.id == nil {
-            _ = especialidadeService.createEspecialidade(especialidade, completionHandler: self.onCompleteSaveEspecialidade)
+        if cobertura.id == nil {
+            _ = coberturaService.createCobertura(cobertura, completionHandler: self.onCompleteSaveCobertura)
         } else {
-            _ = especialidadeService.updateEspecialidade(especialidade, completionHandler: self.onCompleteSaveEspecialidade)
+            _ = coberturaService.updateCobertura(cobertura, completionHandler: self.onCompleteSaveCobertura)
         }
     }
     
@@ -60,7 +59,7 @@ class EspecialidadeViewController: UITableViewController, UITextFieldDelegate {
             return
         }
         
-        especialidade.descricao = trimWhitespace(value: descricaoEspecialidade.text)
+        cobertura.descricao = trimWhitespace(value: descricaoCobertura.text)
     }
     
     // MARK: UITextFieldDelegate
@@ -85,10 +84,10 @@ class EspecialidadeViewController: UITableViewController, UITextFieldDelegate {
     }
     
     private func updateSaveButtonState() {
-        saveButton.isEnabled = trimWhitespace(value: descricaoEspecialidade.text).count > 0
+        saveButton.isEnabled = trimWhitespace(value: descricaoCobertura.text).count > 0
     }
     
-    private func onCompleteSaveEspecialidade(response: DataResponse<Especialidade, AFError>) {
+    private func onCompleteSaveCobertura(response: DataResponse<Cobertura, AFError>) {
         switch response.result {
         case let .success(result):
             DispatchQueue.main.async {

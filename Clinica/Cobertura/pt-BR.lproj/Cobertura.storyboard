@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Especialidades-->
+        <!--Coberturas-->
         <scene sceneID="3qb-G0-MAz">
             <objects>
-                <tableViewController id="Mg1-PT-z3v" customClass="EspecialidadeTableViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Mg1-PT-z3v" customClass="CoberturaTableViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="d6p-Jy-ZDG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                             <outlet property="delegate" destination="Mg1-PT-z3v" id="EE4-w3-5ZO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Especialidades" id="pdj-MB-Zk0">
+                    <navigationItem key="navigationItem" title="Coberturas" id="pdj-MB-Zk0">
                         <barButtonItem key="leftBarButtonItem" title="Menu" image="house" catalog="system" id="8ch-yl-iUI">
                             <connections>
                                 <action selector="showMenu:" destination="Mg1-PT-z3v" id="ydU-2M-D12"/>
@@ -46,7 +46,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="7Fv-LP-PGR">
                             <connections>
-                                <segue destination="Lum-oH-14L" kind="show" identifier="AdicionarEspecialidade" id="UMc-FT-biT"/>
+                                <segue destination="e2k-sG-NUf" kind="show" identifier="AdicionarCobertura" id="UTa-rv-ebY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -55,36 +55,39 @@
             </objects>
             <point key="canvasLocation" x="915.94202898550736" y="68.478260869565219"/>
         </scene>
-        <!--Cadastrar Especialidade-->
-        <scene sceneID="6aA-M9-ubh">
+        <!--Cadastrar Cobertura-->
+        <scene sceneID="mdc-gF-dvX">
             <objects>
-                <tableViewController id="Lum-oH-14L" customClass="EspecialidadeViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="rXh-3a-es5">
+                <tableViewController id="e2k-sG-NUf" customClass="CoberturaViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ehd-hG-Kea">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Dados" id="ZLd-Sc-CiQ">
+                            <tableViewSection headerTitle="Dados" id="rv6-Th-yuR">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="XAq-XU-QBe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="98M-KM-nXO">
                                         <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XAq-XU-QBe" id="OrX-Mw-27k">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="98M-KM-nXO" id="Qkc-pD-51y">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc8-wx-PRg">
-                                                    <rect key="frame" x="20" y="20" width="77" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhl-gg-DmK">
+                                                    <rect key="frame" x="20" y="22" width="77" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrição" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UXL-1D-Xqu">
-                                                    <rect key="frame" x="105" y="13" width="289" height="34"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrição" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EiR-Xv-Ilt">
+                                                    <rect key="frame" x="105" y="16" width="289" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="e2k-sG-NUf" id="FXR-MN-ZZL"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -92,32 +95,29 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="Lum-oH-14L" id="vAi-v6-70O"/>
-                            <outlet property="delegate" destination="Lum-oH-14L" id="614-Df-UvF"/>
-                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cadastrar Especialidade" id="E26-wv-sbn">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="N65-xT-dtr">
+                    <navigationItem key="navigationItem" title="Cadastrar Cobertura" id="1ne-c3-v5U">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xnz-oJ-kw1">
                             <connections>
-                                <action selector="cancel:" destination="Lum-oH-14L" id="WIi-gl-Ko2"/>
+                                <action selector="cancel:" destination="e2k-sG-NUf" id="cB2-hW-cG0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5IY-EN-FsD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="DaB-Tm-jCq">
                             <connections>
-                                <action selector="save:" destination="Lum-oH-14L" id="F5Q-dp-DvZ"/>
+                                <action selector="save:" destination="950-3J-OvP" id="Mbz-dg-xE1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="N65-xT-dtr" id="RXy-y4-t4z"/>
-                        <outlet property="descricaoEspecialidade" destination="UXL-1D-Xqu" id="3hm-nY-uE8"/>
-                        <outlet property="saveButton" destination="5IY-EN-FsD" id="A1H-ue-xd4"/>
+                        <outlet property="cancelButton" destination="Xnz-oJ-kw1" id="n4J-ce-CFT"/>
+                        <outlet property="descricaoCobertura" destination="EiR-Xv-Ilt" id="Vpq-NF-qsA"/>
+                        <outlet property="saveButton" destination="DaB-Tm-jCq" id="tJq-By-Urv"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uSc-Mj-WaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qFY-lg-tt3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="950-3J-OvP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1871.0144927536232" y="67.663043478260875"/>
+            <point key="canvasLocation" x="1873.913043478261" y="67.663043478260875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Glt-Rp-cpg">

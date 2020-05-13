@@ -71,6 +71,7 @@
                         <outlet property="menuCollectionView" destination="bmq-BO-dGD" id="nat-Op-kZ3"/>
                         <segue destination="U5F-Tf-Exi" kind="show" identifier="Especialidade" id="SK0-F3-r9z"/>
                         <segue destination="UKn-3i-Wma" kind="show" identifier="Medico" id="3E6-2h-kEK"/>
+                        <segue destination="50I-Xr-cz3" kind="show" identifier="Cobertura" id="VD1-uZ-HOF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cE3-Gh-etH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -96,6 +97,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="veh-LA-jSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1168" y="-252"/>
+        </scene>
+        <!--Cobertura-->
+        <scene sceneID="aEc-wV-Gg3">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Cobertura" storyboardName="Cobertura" id="50I-Xr-cz3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="I9b-8N-hkd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NiU-sA-zot" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1181" y="-216"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2nB-wM-ZvU">
