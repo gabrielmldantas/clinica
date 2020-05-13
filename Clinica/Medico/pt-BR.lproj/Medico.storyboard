@@ -78,7 +78,7 @@
         <scene sceneID="7Bj-Mm-fb4">
             <objects>
                 <tableViewController id="IPE-c5-sTh" customClass="MedicoViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ypD-lZ-dHU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ypD-lZ-dHU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -104,6 +104,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="IPE-c5-sTh" id="Gaz-rb-qHL"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -125,14 +128,15 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                                                 </textField>
-                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XUH-WU-fVz">
-                                                    <rect key="frame" x="125" y="0.0" width="269" height="65"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="UF" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YyD-lA-6K5">
+                                                    <rect key="frame" x="132" y="14" width="262" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="IPE-c5-sTh" id="X0Y-be-0Xv"/>
-                                                        <outlet property="delegate" destination="IPE-c5-sTh" id="aHa-79-aCP"/>
+                                                        <action selector="showUfPicker:" destination="IPE-c5-sTh" eventType="editingDidBegin" id="2uB-cO-psU"/>
                                                     </connections>
-                                                </pickerView>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -147,14 +151,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7q-FQ-1Xa">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="65"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5eR-cB-dVT">
+                                                    <rect key="frame" x="20" y="15" width="374" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="IPE-c5-sTh" id="hGV-zy-KdS"/>
-                                                        <outlet property="delegate" destination="IPE-c5-sTh" id="6rm-l6-slT"/>
+                                                        <action selector="showEspecialidadePicker:" destination="IPE-c5-sTh" eventType="editingDidBegin" id="8m8-rm-DaP"/>
                                                     </connections>
-                                                </pickerView>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -180,11 +185,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="LwV-of-LVm" id="kWe-C7-RPv"/>
-                        <outlet property="especialidade" destination="W7q-FQ-1Xa" id="PEY-T1-Wla"/>
+                        <outlet property="especialidade" destination="5eR-cB-dVT" id="IWM-es-gR5"/>
                         <outlet property="nomeMedico" destination="vRa-Wo-Jva" id="6Rd-87-eXc"/>
                         <outlet property="numeroCrm" destination="Vu8-tI-aZU" id="6Ly-EF-gn5"/>
                         <outlet property="saveButton" destination="Ji1-V9-LEe" id="2zy-1N-MEc"/>
-                        <outlet property="ufCrm" destination="XUH-WU-fVz" id="8lf-MI-qNy"/>
+                        <outlet property="ufCrm" destination="YyD-lA-6K5" id="MzX-kA-cbC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l8X-j4-Cve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

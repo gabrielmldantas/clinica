@@ -9,26 +9,35 @@
 import UIKit
 import Alamofire
 
-class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var nomeMedico: UITextField!
     @IBOutlet weak var numeroCrm: UITextField!
-    @IBOutlet weak var ufCrm: UIPickerView!
-    @IBOutlet weak var especialidade: UIPickerView!
+    @IBOutlet weak var ufCrm: UITextField!
+    @IBOutlet weak var especialidade: UITextField!
 
     private let especialidadeService = EspecialidadeService()
     private let medicoService = MedicoService()
     private let loadingIndicator = UIUtilities.createLoadingIndicator()
     private let estados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PE", "PI", "PR",
         "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"].sorted()
+    private let ufPicker = UIPickerView()
+    private let especialidadePicker = UIPickerView()
     var crudViewDelegate: CrudViewDelegate?
     var medico: Medico!
     private var especialidades = [Especialidade]()
+    private var especialidadeSelecionada: Especialidade?
+    private var selectingUf = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ufPicker.dataSource = self
+        ufPicker.delegate = self
+        especialidadePicker.dataSource = self
+        especialidadePicker.delegate = self
         
         if medico == nil {
             medico = Medico()
@@ -36,7 +45,9 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
             nomeMedico.text = medico.nome
             let crmParts = medico.crm?.split(separator: "-")
             numeroCrm.text = String(crmParts![0])
-            ufCrm.selectRow(estados.firstIndex(of: String(crmParts![1]))!, inComponent: 0, animated: false)
+            ufCrm.text = String(crmParts![1])
+            especialidadeSelecionada = medico.especialidade
+            especialidade.text = especialidadeSelecionada?.descricao
         }
         
         updateSaveButtonState()
@@ -59,6 +70,24 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
         } else {
             _ = medicoService.updateMedico(medico, completionHandler: self.onCompleteSaveMedico)
         }
+    }
+    
+    @IBAction func showUfPicker(_ sender: Any) {
+        if ufCrm.text?.count ?? 0 > 0 {
+            ufPicker.selectRow(estados.firstIndex(of: ufCrm.text!)!, inComponent: 0, animated: false)
+        }
+        ufCrm.inputView = ufPicker
+        ufCrm.inputAccessoryView = createPickerToolbar()
+        selectingUf = true
+    }
+    
+    @IBAction func showEspecialidadePicker(_ sender: Any) {
+        if especialidadeSelecionada != nil {
+            especialidadePicker.selectRow(especialidades.firstIndex(where: { $0.id == especialidadeSelecionada?.id} )!, inComponent: 0, animated: false)
+        }
+        especialidade.inputView = especialidadePicker
+        especialidade.inputAccessoryView = createPickerToolbar()
+        selectingUf = false
     }
     
     // MARK: Navigation
@@ -95,7 +124,7 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == ufCrm {
+        if pickerView == ufPicker {
             return estados.count
         } else {
             return especialidades.count
@@ -105,7 +134,7 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
     // MARK: UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == ufCrm {
+        if pickerView == ufPicker {
             return estados[row]
         } else {
             return especialidades[row].descricao
@@ -121,8 +150,8 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
     private func updateSaveButtonState() {
         saveButton.isEnabled = trimWhitespace(value: nomeMedico.text).count > 0
             && trimWhitespace(value: numeroCrm.text).count > 0
-            && ufCrm.selectedRow(inComponent: 0) > -1
-            && especialidade.selectedRow(inComponent: 0) > -1
+            && ufCrm.text?.count ?? 0 > 0
+            && especialidade.text?.count ?? 0 > 0
     }
     
     private func onCompleteSaveMedico(response: DataResponse<Medico, AFError>) {
@@ -154,10 +183,7 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
         switch response.result {
         case let .success(result):
             self.especialidades = result.results
-            especialidade.reloadComponent(0)
-            if medico.id != nil {
-                especialidade.selectRow(self.especialidades.firstIndex(where: { $0.id == medico.especialidade!.id } )!, inComponent: 0, animated: false)
-            }
+            especialidadePicker.reloadComponent(0)
         case let .failure(error):
             DispatchQueue.main.async {
                 let alert = UIUtilities.createDefaultAlert(
@@ -173,7 +199,34 @@ class MedicoViewController: UITableViewController, UITextFieldDelegate, UIPicker
     
     private func updateDadosMedico() {
         medico.nome = trimWhitespace(value: nomeMedico.text)
-        medico.crm = trimWhitespace(value: numeroCrm.text) + "-" + trimWhitespace(value: estados[ufCrm.selectedRow(inComponent: 0)])
-        medico.especialidade = especialidades[especialidade.selectedRow(inComponent: 0)]
+        medico.crm = trimWhitespace(value: numeroCrm.text) + "-" + trimWhitespace(value: ufCrm.text)
+        medico.especialidade = especialidadeSelecionada
+    }
+    
+    private func createPickerToolbar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelPicker))
+
+        toolbar.setItems([doneButton, spaceButton, cancelButton], animated: false)
+        
+        return toolbar
+    }
+    
+    @objc func donePicker() {
+        if selectingUf {
+            ufCrm.text = estados[ufPicker.selectedRow(inComponent: 0)]
+        } else {
+            especialidadeSelecionada = especialidades[especialidadePicker.selectedRow(inComponent: 0)]
+            especialidade.text = especialidadeSelecionada?.descricao
+        }
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelPicker() {
+        self.view.endEditing(true)
     }
 }
