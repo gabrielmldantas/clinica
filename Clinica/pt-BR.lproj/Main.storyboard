@@ -72,6 +72,7 @@
                         <segue destination="U5F-Tf-Exi" kind="show" identifier="Especialidade" id="SK0-F3-r9z"/>
                         <segue destination="UKn-3i-Wma" kind="show" identifier="Medico" id="3E6-2h-kEK"/>
                         <segue destination="50I-Xr-cz3" kind="show" identifier="Cobertura" id="VD1-uZ-HOF"/>
+                        <segue destination="VnQ-Zm-nof" kind="show" identifier="Paciente" id="VnS-2t-Rsv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cE3-Gh-etH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -107,6 +108,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NiU-sA-zot" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1181" y="-216"/>
+        </scene>
+        <!--Paciente-->
+        <scene sceneID="6fD-2j-4Tb">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Paciente" storyboardName="Paciente" id="VnQ-Zm-nof" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="gCZ-CO-Gx6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGl-c1-Wam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1173" y="-176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2nB-wM-ZvU">

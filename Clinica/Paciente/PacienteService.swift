@@ -1,5 +1,5 @@
 //
-//  CoberturaService.swift
+//  PacienteService.swift
 //  Clinica
 //
 //  Created by Gabriel on 2020-05-06.
@@ -9,16 +9,16 @@
 import AlamofireObjectMapper
 import Alamofire
 
-class CoberturaService: NSObject {
+class PacienteService: NSObject {
 
-    private let baseUrl = "\(Constants.url)/cobertura"
+    private let baseUrl = "\(Constants.url)/paciente"
     
     let headers: HTTPHeaders = [
         .accept("application/json")
     ]
     
-    func loadCoberturas(
-        completionHandler: @escaping (DataResponse<CrudResultsResponse<Cobertura>, AFError>) -> Void) -> DataRequest {
+    func loadPacientes(
+        completionHandler: @escaping (DataResponse<CrudResultsResponse<Paciente>, AFError>) -> Void) -> DataRequest {
         
         return AF
             .request(baseUrl, headers: headers)
@@ -26,37 +26,37 @@ class CoberturaService: NSObject {
             .responseObject(completionHandler: completionHandler)
     }
     
-    func createCobertura(_ cobertura: Cobertura,
+    func createPaciente(_ paciente: Paciente,
         completionHandler: @escaping
-        (DataResponse<Cobertura, AFError>) -> Void) -> DataRequest {
+        (DataResponse<Paciente, AFError>) -> Void) -> DataRequest {
         
         return AF
         .request(baseUrl,
                  method: .post,
-                 parameters: cobertura,
+                 parameters: paciente,
                  encoder: JSONParameterEncoder.default,
                  headers: headers)
         .validate()
         .responseObject(completionHandler: completionHandler)
     }
     
-    func updateCobertura(_ cobertura: Cobertura,
+    func updatePaciente(_ paciente: Paciente,
         completionHandler: @escaping
-        (DataResponse<Cobertura, AFError>) -> Void) -> DataRequest {
+        (DataResponse<Paciente, AFError>) -> Void) -> DataRequest {
         
         return AF
-        .request("\(baseUrl)/\(cobertura.id!)",
+        .request("\(baseUrl)/\(paciente.id!)",
                  method: .put,
-                 parameters: cobertura,
+                 parameters: paciente,
                  encoder: JSONParameterEncoder.default,
                  headers: headers)
         .validate()
         .responseObject(completionHandler: completionHandler)
     }
     
-    func deleteCobertura(_ idCobertura: Int, completionHandler: @escaping (DataResponse<Data?, AFError>) -> Void) -> DataRequest {
+    func deletePaciente(_ idPaciente: Int, completionHandler: @escaping (DataResponse<Data?, AFError>) -> Void) -> DataRequest {
         return AF
-        .request("\(baseUrl)/\(idCobertura)",
+        .request("\(baseUrl)/\(idPaciente)",
                  method: .delete,
                  headers: headers)
         .validate()

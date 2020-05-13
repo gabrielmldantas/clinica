@@ -1,5 +1,5 @@
 //
-//  EspecialidadeViewController.swift
+//  CoberturaViewController.swift
 //  Clinica
 //
 //  Created by Gabriel on 2020-05-06.

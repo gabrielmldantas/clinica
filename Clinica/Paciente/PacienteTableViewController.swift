@@ -1,5 +1,5 @@
 //
-//  CoberturaTableViewController.swift
+//  EspecialidadeTableViewController.swift
 //  Clinica
 //
 //  Created by Gabriel on 2020-05-06.
@@ -9,10 +9,10 @@
 import UIKit
 import Alamofire
 
-class CoberturaTableViewController: UITableViewController, CrudViewDelegate {
+class PacienteTableViewController: UITableViewController, CrudViewDelegate {
 
-    private var coberturas = [Cobertura]()
-    private let coberturaService = CoberturaService()
+    private var pacientes = [Paciente]()
+    private let pacienteService = PacienteService()
     private let loadingIndicator = UIUtilities.createLoadingIndicator()
     private var selectedIndex : Int?
     
@@ -20,7 +20,7 @@ class CoberturaTableViewController: UITableViewController, CrudViewDelegate {
         super.viewDidLoad()
         
         refreshControl = UIRefreshControl()
-        refreshControl?.attributedTitle = NSAttributedString(string: "Atualizando coberturas...")
+        refreshControl?.attributedTitle = NSAttributedString(string: "Atualizando pacientes...")
         refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         
         reloadTable()
@@ -33,21 +33,24 @@ class CoberturaTableViewController: UITableViewController, CrudViewDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coberturas.count
+        return pacientes.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PacienteTableViewCell
         
-        let cobertura = coberturas[indexPath.row]
-        cell.textLabel?.text = cobertura.descricao
+        let paciente = pacientes[indexPath.row]
+        cell.nome.text = paciente.nome
+        cell.cpf.text = paciente.cpf
+        cell.telefone.text = String(paciente.telefone!)
+        cell.paciente = paciente
         
         return cell
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            _ = coberturaService.deleteCobertura(coberturas[indexPath.row].id!, completionHandler: self.onCompleteDeleteCobertura)
+            _ = pacienteService.deletePaciente(pacientes[indexPath.row].id!, completionHandler: self.onCompleteDeletePaciente)
         }
     }
     
@@ -55,17 +58,17 @@ class CoberturaTableViewController: UITableViewController, CrudViewDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath.row
-        self.performSegue(withIdentifier: "AdicionarCobertura", sender: nil)
+        self.performSegue(withIdentifier: "AdicionarPaciente", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nextController = segue.destination as? CoberturaViewController {
+        if let nextController = segue.destination as? PacienteViewController {
             nextController.crudViewDelegate = self
             if let selectedIndex = self.selectedIndex {
-                nextController.cobertura = coberturas[selectedIndex]
+                nextController.paciente = pacientes[selectedIndex]
                 self.selectedIndex = nil
             }
         }
@@ -83,10 +86,10 @@ class CoberturaTableViewController: UITableViewController, CrudViewDelegate {
     
     // MARK: Private methods
     
-    private func onCompleteLoadCoberturas(response: DataResponse<CrudResultsResponse<Cobertura>, AFError>) {
+    private func onCompleteLoadPacientes(response: DataResponse<CrudResultsResponse<Paciente>, AFError>) {
         switch response.result {
         case let .success(crudResponse):
-            self.coberturas = crudResponse.results
+            self.pacientes = crudResponse.results
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
@@ -103,7 +106,7 @@ class CoberturaTableViewController: UITableViewController, CrudViewDelegate {
     }
     
     @objc private func handleRefreshControl(_ sender: Any) {
-        _ = coberturaService.loadCoberturas(completionHandler: self.onCompleteLoadCoberturas)
+        _ = pacienteService.loadPacientes(completionHandler: self.onCompleteLoadPacientes)
     }
     
     private func reloadTable() {
@@ -111,7 +114,7 @@ class CoberturaTableViewController: UITableViewController, CrudViewDelegate {
         handleRefreshControl(self)
     }
     
-    private func onCompleteDeleteCobertura(response: DataResponse<Data?, AFError>) {
+    private func onCompleteDeletePaciente(response: DataResponse<Data?, AFError>) {
         switch response.result {
         case .success:
             self.reloadTable()
