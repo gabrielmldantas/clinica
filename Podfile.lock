@@ -1,0 +1,33 @@
+PODS:
+  - Alamofire (5.1.0)
+  - AlamofireObjectMapper (6.3.0):
+    - Alamofire (~> 5.1)
+    - ObjectMapper (~> 3.5.1)
+  - ObjectMapper (3.5.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.1)
+  - AlamofireObjectMapper (from `https://github.com/RomanPodymov/AlamofireObjectMapper.git`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ObjectMapper
+
+EXTERNAL SOURCES:
+  AlamofireObjectMapper:
+    :git: https://github.com/RomanPodymov/AlamofireObjectMapper.git
+
+CHECKOUT OPTIONS:
+  AlamofireObjectMapper:
+    :commit: f52874edbfc3d6c4f5aebe336ca83b122ddda7c1
+    :git: https://github.com/RomanPodymov/AlamofireObjectMapper.git
+
+SPEC CHECKSUMS:
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  AlamofireObjectMapper: ee298085f0b0881c37ad7b6491a63a9ee96dff84
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+
+PODFILE CHECKSUM: 70e62012f8fa79aa05f9fbe4c84ee5d20ddc7962
+
+COCOAPODS: 1.9.1

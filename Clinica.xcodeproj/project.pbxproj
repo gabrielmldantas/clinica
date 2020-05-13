@@ -3,27 +3,51 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		694B2A0E693D1E2FBABDABBB /* Pods_Clinica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CD568CB54495FD8C41FA9B /* Pods_Clinica.framework */; };
+		C02445E1246B74E10045A4CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02445E0246B74E10045A4CC /* Constants.swift */; };
+		C02445E9246B7CF90045A4CC /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02445E8246B7CF90045A4CC /* MenuCollectionViewCell.swift */; };
+		C02445ED246B8EB40045A4CC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02445EC246B8EB40045A4CC /* MainViewController.swift */; };
+		C02445EE246B97A50045A4CC /* Especialidade.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C087BA3224636D92001D8DC7 /* Especialidade.storyboard */; };
+		C02445EF246B98480045A4CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02445F1246B98480045A4CC /* Main.storyboard */; };
+		C050FD6D2463A7A000F73B5E /* CrudResultsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050FD6C2463A7A000F73B5E /* CrudResultsResponse.swift */; };
+		C050FD6F2463A8F800F73B5E /* EspecialidadeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050FD6E2463A8F800F73B5E /* EspecialidadeService.swift */; };
+		C050FD722463B13200F73B5E /* UIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050FD702463ADCB00F73B5E /* UIUtilities.swift */; };
+		C050FD742463CBEA00F73B5E /* CrudViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C050FD732463CBEA00F73B5E /* CrudViewProtocol.swift */; };
 		C087BA2D24636D92001D8DC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087BA2C24636D92001D8DC7 /* AppDelegate.swift */; };
 		C087BA2F24636D92001D8DC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087BA2E24636D92001D8DC7 /* SceneDelegate.swift */; };
-		C087BA3124636D92001D8DC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C087BA3024636D92001D8DC7 /* ViewController.swift */; };
-		C087BA3424636D92001D8DC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C087BA3224636D92001D8DC7 /* Main.storyboard */; };
 		C087BA3624636D95001D8DC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C087BA3524636D95001D8DC7 /* Assets.xcassets */; };
 		C087BA3924636D95001D8DC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C087BA3724636D95001D8DC7 /* LaunchScreen.storyboard */; };
+		C0EE095F246386A4002A391E /* EspecialidadeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE095E246386A4002A391E /* EspecialidadeTableViewController.swift */; };
+		C0EE0961246386D9002A391E /* Especialidade.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE0960246386D9002A391E /* Especialidade.swift */; };
+		C0EE096324639033002A391E /* EspecialidadeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE096224639033002A391E /* EspecialidadeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		383B2CE31F970C6CE77E167F /* Pods-Clinica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clinica.release.xcconfig"; path = "Target Support Files/Pods-Clinica/Pods-Clinica.release.xcconfig"; sourceTree = "<group>"; };
+		760B339EBD4D4DB11E27C1DA /* Pods-Clinica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clinica.debug.xcconfig"; path = "Target Support Files/Pods-Clinica/Pods-Clinica.debug.xcconfig"; sourceTree = "<group>"; };
+		C02445E0246B74E10045A4CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C02445E8246B7CF90045A4CC /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		C02445EC246B8EB40045A4CC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C02445F0246B98480045A4CC /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		C050FD6A24639DE500F73B5E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		C050FD6B24639DE700F73B5E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Especialidade.storyboard"; sourceTree = "<group>"; };
+		C050FD6C2463A7A000F73B5E /* CrudResultsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudResultsResponse.swift; sourceTree = "<group>"; };
+		C050FD6E2463A8F800F73B5E /* EspecialidadeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspecialidadeService.swift; sourceTree = "<group>"; };
+		C050FD702463ADCB00F73B5E /* UIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtilities.swift; sourceTree = "<group>"; };
+		C050FD732463CBEA00F73B5E /* CrudViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrudViewProtocol.swift; sourceTree = "<group>"; };
 		C087BA2924636D92001D8DC7 /* Clinica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clinica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C087BA2C24636D92001D8DC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C087BA2E24636D92001D8DC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C087BA3024636D92001D8DC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C087BA3324636D92001D8DC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C087BA3524636D95001D8DC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C087BA3824636D95001D8DC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C087BA3A24636D95001D8DC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0EE095E246386A4002A391E /* EspecialidadeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspecialidadeTableViewController.swift; sourceTree = "<group>"; };
+		C0EE0960246386D9002A391E /* Especialidade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Especialidade.swift; sourceTree = "<group>"; };
+		C0EE096224639033002A391E /* EspecialidadeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EspecialidadeViewController.swift; sourceTree = "<group>"; };
+		D0CD568CB54495FD8C41FA9B /* Pods_Clinica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Clinica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +55,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				694B2A0E693D1E2FBABDABBB /* Pods_Clinica.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46ED2DDB2A5194F99701958B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0CD568CB54495FD8C41FA9B /* Pods_Clinica.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4AF76ACF2265CCC500C4993 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				760B339EBD4D4DB11E27C1DA /* Pods-Clinica.debug.xcconfig */,
+				383B2CE31F970C6CE77E167F /* Pods-Clinica.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C02445E3246B75BC0045A4CC /* Especialidade */ = {
+			isa = PBXGroup;
+			children = (
+				C087BA3224636D92001D8DC7 /* Especialidade.storyboard */,
+				C0EE095E246386A4002A391E /* EspecialidadeTableViewController.swift */,
+				C0EE0960246386D9002A391E /* Especialidade.swift */,
+				C0EE096224639033002A391E /* EspecialidadeViewController.swift */,
+				C050FD6E2463A8F800F73B5E /* EspecialidadeService.swift */,
+			);
+			path = Especialidade;
+			sourceTree = "<group>";
+		};
 		C087BA2024636D92001D8DC7 = {
 			isa = PBXGroup;
 			children = (
 				C087BA2B24636D92001D8DC7 /* Clinica */,
 				C087BA2A24636D92001D8DC7 /* Products */,
+				A4AF76ACF2265CCC500C4993 /* Pods */,
+				46ED2DDB2A5194F99701958B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +112,19 @@
 		C087BA2B24636D92001D8DC7 /* Clinica */ = {
 			isa = PBXGroup;
 			children = (
+				C02445E3246B75BC0045A4CC /* Especialidade */,
+				C02445F1246B98480045A4CC /* Main.storyboard */,
 				C087BA2C24636D92001D8DC7 /* AppDelegate.swift */,
 				C087BA2E24636D92001D8DC7 /* SceneDelegate.swift */,
-				C087BA3024636D92001D8DC7 /* ViewController.swift */,
-				C087BA3224636D92001D8DC7 /* Main.storyboard */,
 				C087BA3524636D95001D8DC7 /* Assets.xcassets */,
 				C087BA3724636D95001D8DC7 /* LaunchScreen.storyboard */,
 				C087BA3A24636D95001D8DC7 /* Info.plist */,
+				C050FD6C2463A7A000F73B5E /* CrudResultsResponse.swift */,
+				C050FD702463ADCB00F73B5E /* UIUtilities.swift */,
+				C050FD732463CBEA00F73B5E /* CrudViewProtocol.swift */,
+				C02445E0246B74E10045A4CC /* Constants.swift */,
+				C02445E8246B7CF90045A4CC /* MenuCollectionViewCell.swift */,
+				C02445EC246B8EB40045A4CC /* MainViewController.swift */,
 			);
 			path = Clinica;
 			sourceTree = "<group>";
@@ -74,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C087BA3D24636D95001D8DC7 /* Build configuration list for PBXNativeTarget "Clinica" */;
 			buildPhases = (
+				AD9B3549D4FF39CAEA8F7375 /* [CP] Check Pods Manifest.lock */,
 				C087BA2524636D92001D8DC7 /* Sources */,
 				C087BA2624636D92001D8DC7 /* Frameworks */,
 				C087BA2724636D92001D8DC7 /* Resources */,
+				832C1F67788DEAB912AA9F55 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -108,7 +172,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				"pt-BR",
 			);
 			mainGroup = C087BA2024636D92001D8DC7;
 			productRefGroup = C087BA2A24636D92001D8DC7 /* Products */;
@@ -125,40 +189,100 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02445EE246B97A50045A4CC /* Especialidade.storyboard in Resources */,
 				C087BA3924636D95001D8DC7 /* LaunchScreen.storyboard in Resources */,
 				C087BA3624636D95001D8DC7 /* Assets.xcassets in Resources */,
-				C087BA3424636D92001D8DC7 /* Main.storyboard in Resources */,
+				C02445EF246B98480045A4CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		832C1F67788DEAB912AA9F55 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clinica/Pods-Clinica-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Clinica/Pods-Clinica-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Clinica/Pods-Clinica-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD9B3549D4FF39CAEA8F7375 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Clinica-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C087BA2524636D92001D8DC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C087BA3124636D92001D8DC7 /* ViewController.swift in Sources */,
+				C050FD742463CBEA00F73B5E /* CrudViewProtocol.swift in Sources */,
 				C087BA2D24636D92001D8DC7 /* AppDelegate.swift in Sources */,
+				C0EE095F246386A4002A391E /* EspecialidadeTableViewController.swift in Sources */,
+				C02445ED246B8EB40045A4CC /* MainViewController.swift in Sources */,
 				C087BA2F24636D92001D8DC7 /* SceneDelegate.swift in Sources */,
+				C0EE0961246386D9002A391E /* Especialidade.swift in Sources */,
+				C02445E1246B74E10045A4CC /* Constants.swift in Sources */,
+				C0EE096324639033002A391E /* EspecialidadeViewController.swift in Sources */,
+				C050FD6F2463A8F800F73B5E /* EspecialidadeService.swift in Sources */,
+				C050FD722463B13200F73B5E /* UIUtilities.swift in Sources */,
+				C050FD6D2463A7A000F73B5E /* CrudResultsResponse.swift in Sources */,
+				C02445E9246B7CF90045A4CC /* MenuCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C087BA3224636D92001D8DC7 /* Main.storyboard */ = {
+		C02445F1246B98480045A4CC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C087BA3324636D92001D8DC7 /* Base */,
+				C02445F0246B98480045A4CC /* pt-BR */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C087BA3224636D92001D8DC7 /* Especialidade.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C050FD6B24639DE700F73B5E /* pt-BR */,
+			);
+			name = Especialidade.storyboard;
 			sourceTree = "<group>";
 		};
 		C087BA3724636D95001D8DC7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C087BA3824636D95001D8DC7 /* Base */,
+				C050FD6A24639DE500F73B5E /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -170,6 +294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -230,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -282,6 +408,7 @@
 		};
 		C087BA3E24636D95001D8DC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 760B339EBD4D4DB11E27C1DA /* Pods-Clinica.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +427,7 @@
 		};
 		C087BA3F24636D95001D8DC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 383B2CE31F970C6CE77E167F /* Pods-Clinica.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
