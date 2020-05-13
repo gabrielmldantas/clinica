@@ -70,6 +70,7 @@
                     <connections>
                         <outlet property="menuCollectionView" destination="bmq-BO-dGD" id="nat-Op-kZ3"/>
                         <segue destination="U5F-Tf-Exi" kind="show" identifier="Especialidade" id="SK0-F3-r9z"/>
+                        <segue destination="UKn-3i-Wma" kind="show" identifier="Medico" id="3E6-2h-kEK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cE3-Gh-etH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -85,6 +86,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRA-xf-znM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1198" y="-296"/>
+        </scene>
+        <!--Medico-->
+        <scene sceneID="zOM-jz-2JB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Medico" id="UKn-3i-Wma" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="M6O-z2-w3s"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="veh-LA-jSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1168" y="-252"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2nB-wM-ZvU">

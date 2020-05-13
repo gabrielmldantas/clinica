@@ -47,7 +47,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! MenuCollectionViewCell
         if let selectedMenu = cell.label.text {
-            self.performSegue(withIdentifier: selectedMenu, sender: nil)
+            if selectedMenu == "Especialidade" {
+                self.performSegue(withIdentifier: "Especialidade", sender: nil)
+            } else if selectedMenu == "Médico" {
+                self.performSegue(withIdentifier: "Medico", sender: nil)
+            }
         }
     }
 }
