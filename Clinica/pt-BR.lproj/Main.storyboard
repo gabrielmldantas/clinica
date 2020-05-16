@@ -11,7 +11,7 @@
         <!--Clínica DDM-->
         <scene sceneID="3Eu-Io-yva">
             <objects>
-                <viewController id="nuZ-fc-qxN" customClass="MainViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nuZ-fc-qxN" customClass="MainViewController" customModule="Clinica_DDM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CeN-CT-UEa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="menuCell" id="EDg-27-eS8" customClass="MenuCollectionViewCell" customModule="Clinica" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="menuCell" id="EDg-27-eS8" customClass="MenuCollectionViewCell" customModule="Clinica_DDM" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="136" height="97"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VC0-mu-Ouy">
@@ -67,7 +67,7 @@
                         <viewLayoutGuide key="safeArea" id="OkG-e5-jqc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Clínica DDM" id="IeM-ny-PSs">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="escape" catalog="system" id="OYF-7d-CJb">
+                        <barButtonItem key="leftBarButtonItem" title="Sair" id="OYF-7d-CJb">
                             <connections>
                                 <action selector="logout:" destination="nuZ-fc-qxN" id="baQ-tK-0oA"/>
                             </connections>
@@ -159,7 +159,7 @@
         <!--Clínica DDM-->
         <scene sceneID="Nrs-si-r1H">
             <objects>
-                <viewController id="QQb-U4-ez9" customClass="LoginViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QQb-U4-ez9" customClass="LoginViewController" customModule="Clinica_DDM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z83-fz-i5p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,7 +225,7 @@
         <!--Cadastro Usuario Table View Controller-->
         <scene sceneID="kcc-Gy-Hgq">
             <objects>
-                <tableViewController id="qu8-LE-CoU" customClass="CadastroUsuarioTableViewController" customModule="Clinica" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qu8-LE-CoU" customClass="CadastroUsuarioTableViewController" customModule="Clinica_DDM" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="e0q-Vl-qhq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,7 +357,4 @@
             <point key="canvasLocation" x="1158" y="635"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="escape" catalog="system" width="128" height="121"/>
-    </resources>
 </document>

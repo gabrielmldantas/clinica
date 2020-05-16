@@ -11,12 +11,12 @@ import Alamofire
 
 class CoberturaConsultaTableViewController: UITableViewController {
 
-    var pacienteSelecionado: Paciente!
-    var medicoSelecionado: Medico!
+    var consulta: Consulta!
     private var coberturas = [Cobertura]()
     private let coberturaService = CoberturaService()
     private let loadingIndicator = UIUtilities.createLoadingIndicator()
     private var selectedIndex : Int?
+    var consultaTableViewController: ConsultaTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class CoberturaConsultaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selecionarCoberturaCell", for: indexPath)
         
         let cobertura = coberturas[indexPath.row]
         cell.textLabel?.text = cobertura.descricao
@@ -51,16 +51,18 @@ class CoberturaConsultaTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath.row
-        self.performSegue(withIdentifier: "AdicionarInformacoesReceitasExames", sender: nil)
+        self.performSegue(withIdentifier: "FinalizarConsulta", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nextController = segue.destination as? CoberturaViewController {
+        if let nextController = segue.destination as? FinalizarConsultaTableViewController {
             if let selectedIndex = self.selectedIndex {
-                nextController.cobertura = coberturas[selectedIndex]
+                consulta.cobertura = coberturas[selectedIndex]
+                nextController.consulta = consulta
+                nextController.consultaTableViewController = consultaTableViewController
                 self.selectedIndex = nil
             }
         }

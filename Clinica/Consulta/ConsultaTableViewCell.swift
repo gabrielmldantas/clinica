@@ -10,15 +10,10 @@ import UIKit
 
 class ConsultaTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var nomePaciente: UILabel!
+    @IBOutlet weak var cpfPaciente: UILabel!
+    @IBOutlet weak var nomeMedico: UILabel!
+    @IBOutlet weak var crmMedico: UILabel!
+    @IBOutlet weak var dataConsulta: UILabel!
 
 }

@@ -15,7 +15,8 @@ class MedicoConsultaTableViewController: UITableViewController {
     private let medicoService = MedicoService()
     private let loadingIndicator = UIUtilities.createLoadingIndicator()
     private var selectedIndex : Int?
-    var pacienteSelecionado: Paciente!
+    var consulta: Consulta!
+    var consultaTableViewController: ConsultaTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +62,9 @@ class MedicoConsultaTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nextController = segue.destination as? CoberturaConsultaTableViewController {
             if let selectedIndex = self.selectedIndex {
-                nextController.pacienteSelecionado = pacienteSelecionado
-                nextController.medicoSelecionado = medicos[selectedIndex]
+                consulta.medico = medicos[selectedIndex]
+                nextController.consulta = consulta
+                nextController.consultaTableViewController = consultaTableViewController
                 self.selectedIndex = nil
             }
         }
