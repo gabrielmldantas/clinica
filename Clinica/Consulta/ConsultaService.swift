@@ -61,5 +61,40 @@ class ConsultaService: NSObject {
         .validate()
         .response(completionHandler: completionHandler)
     }
+    
+    func registrarPagamentos(_ idConsulta: Int, registroPagamento: RegistroPagamento, completionHandler: @escaping (DataResponse<Data?, AFError>) -> Void) -> DataRequest {
 
+        return AF
+        .request("\(baseUrl)/\(idConsulta)/pagamento",
+                 method: .post,
+                 parameters: registroPagamento,
+                 encoder: JSONParameterEncoder.default,
+                 headers: headers)
+        .validate()
+        .response(completionHandler: completionHandler)
+    }
+    
+    func requisitarExames(_ idConsulta: Int, registroRequisicaoExames: RegistroRequisicaoExames, completionHandler: @escaping (DataResponse<Data?, AFError>) -> Void) -> DataRequest {
+
+        return AF
+        .request("\(baseUrl)/\(idConsulta)/exames",
+                 method: .post,
+                 parameters: registroRequisicaoExames,
+                 encoder: JSONParameterEncoder.default,
+                 headers: headers)
+        .validate()
+        .response(completionHandler: completionHandler)
+    }
+    
+    func registrarReceitaMedica(_ idConsulta: Int, registroReceitaMedica: RegistroReceitaMedica, completionHandler: @escaping (DataResponse<Data?, AFError>) -> Void) -> DataRequest {
+
+        return AF
+        .request("\(baseUrl)/\(idConsulta)/receita",
+                 method: .post,
+                 parameters: registroReceitaMedica,
+                 encoder: JSONParameterEncoder.default,
+                 headers: headers)
+        .validate()
+        .response(completionHandler: completionHandler)
+    }
 }

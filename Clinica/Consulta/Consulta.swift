@@ -15,6 +15,9 @@ class Consulta: Mappable, Encodable {
     var medico: Medico?
     var paciente: Paciente?
     var cobertura: Cobertura?
+    var pagamentos = [Pagamento]()
+    var receitasMedicas = [ReceitaMedica]()
+    var requisicoesExames = [RequisicaoExames]()
     
     required init?(map: Map) {
     }
@@ -28,5 +31,8 @@ class Consulta: Mappable, Encodable {
         medico <- map["medico"]
         paciente <- map["paciente"]
         cobertura <- map["cobertura"]
+        pagamentos <- map["pagamentos"]
+        receitasMedicas <- map["receitasMedicas"]
+        requisicoesExames <- map["requisicoesExames"]
     }
 }

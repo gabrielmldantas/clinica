@@ -34,6 +34,13 @@
 		C0B3E876246C2A94007DEF17 /* CoberturaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3E872246C2A94007DEF17 /* CoberturaTableViewController.swift */; };
 		C0B3E877246C2A94007DEF17 /* CoberturaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3E873246C2A94007DEF17 /* CoberturaService.swift */; };
 		C0C0A5AF24706A9000DDEF23 /* FinalizarConsultaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C0A5AE24706A9000DDEF23 /* FinalizarConsultaTableViewController.swift */; };
+		C0D632762488165B00F4FD49 /* FormaPagamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D632752488165B00F4FD49 /* FormaPagamento.swift */; };
+		C0D63278248816B200F4FD49 /* Pagamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D63277248816B200F4FD49 /* Pagamento.swift */; };
+		C0D6327A2488171000F4FD49 /* ReceitaMedica.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D632792488171000F4FD49 /* ReceitaMedica.swift */; };
+		C0D6327C2488174800F4FD49 /* RequisicaoExames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6327B2488174800F4FD49 /* RequisicaoExames.swift */; };
+		C0D6327E2488188E00F4FD49 /* RegistroPagamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6327D2488188E00F4FD49 /* RegistroPagamento.swift */; };
+		C0D632802488191700F4FD49 /* RegistroReceitaMedica.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D6327F2488191700F4FD49 /* RegistroReceitaMedica.swift */; };
+		C0D632822488195B00F4FD49 /* RegistroRequisicaoExames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D632812488195B00F4FD49 /* RegistroRequisicaoExames.swift */; };
 		C0DC542F246C319E00C6D7EA /* Cobertura.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DC542D246C319E00C6D7EA /* Cobertura.storyboard */; };
 		C0DC5436246C46FA00C6D7EA /* PacienteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC5432246C46FA00C6D7EA /* PacienteService.swift */; };
 		C0DC5437246C46FA00C6D7EA /* Paciente.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DC5433246C46FA00C6D7EA /* Paciente.swift */; };
@@ -94,6 +101,13 @@
 		C0B3E872246C2A94007DEF17 /* CoberturaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoberturaTableViewController.swift; sourceTree = "<group>"; };
 		C0B3E873246C2A94007DEF17 /* CoberturaService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoberturaService.swift; sourceTree = "<group>"; };
 		C0C0A5AE24706A9000DDEF23 /* FinalizarConsultaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalizarConsultaTableViewController.swift; sourceTree = "<group>"; };
+		C0D632752488165B00F4FD49 /* FormaPagamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormaPagamento.swift; sourceTree = "<group>"; };
+		C0D63277248816B200F4FD49 /* Pagamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagamento.swift; sourceTree = "<group>"; };
+		C0D632792488171000F4FD49 /* ReceitaMedica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceitaMedica.swift; sourceTree = "<group>"; };
+		C0D6327B2488174800F4FD49 /* RequisicaoExames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequisicaoExames.swift; sourceTree = "<group>"; };
+		C0D6327D2488188E00F4FD49 /* RegistroPagamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroPagamento.swift; sourceTree = "<group>"; };
+		C0D6327F2488191700F4FD49 /* RegistroReceitaMedica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroReceitaMedica.swift; sourceTree = "<group>"; };
+		C0D632812488195B00F4FD49 /* RegistroRequisicaoExames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroRequisicaoExames.swift; sourceTree = "<group>"; };
 		C0DC542E246C319E00C6D7EA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Cobertura.storyboard"; sourceTree = "<group>"; };
 		C0DC5432246C46FA00C6D7EA /* PacienteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacienteService.swift; sourceTree = "<group>"; };
 		C0DC5433246C46FA00C6D7EA /* Paciente.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paciente.swift; sourceTree = "<group>"; };
@@ -268,6 +282,13 @@
 				C0C0A5AE24706A9000DDEF23 /* FinalizarConsultaTableViewController.swift */,
 				C04B31E424707CC400F1FC37 /* ConsultaService.swift */,
 				C04B31E624707CD100F1FC37 /* Consulta.swift */,
+				C0D632752488165B00F4FD49 /* FormaPagamento.swift */,
+				C0D63277248816B200F4FD49 /* Pagamento.swift */,
+				C0D632792488171000F4FD49 /* ReceitaMedica.swift */,
+				C0D6327B2488174800F4FD49 /* RequisicaoExames.swift */,
+				C0D6327D2488188E00F4FD49 /* RegistroPagamento.swift */,
+				C0D6327F2488191700F4FD49 /* RegistroReceitaMedica.swift */,
+				C0D632812488195B00F4FD49 /* RegistroRequisicaoExames.swift */,
 			);
 			path = Consulta;
 			sourceTree = "<group>";
@@ -402,8 +423,12 @@
 				C0DC5459246C835300C6D7EA /* UsuarioService.swift in Sources */,
 				C050FD742463CBEA00F73B5E /* CrudViewProtocol.swift in Sources */,
 				C0DC5437246C46FA00C6D7EA /* Paciente.swift in Sources */,
+				C0D632802488191700F4FD49 /* RegistroReceitaMedica.swift in Sources */,
+				C0D6327C2488174800F4FD49 /* RequisicaoExames.swift in Sources */,
 				C0C0A5AF24706A9000DDEF23 /* FinalizarConsultaTableViewController.swift in Sources */,
+				C0D63278248816B200F4FD49 /* Pagamento.swift in Sources */,
 				C0DC5451246C7C7200C6D7EA /* LoginViewController.swift in Sources */,
+				C0D6327A2488171000F4FD49 /* ReceitaMedica.swift in Sources */,
 				C087BA2D24636D92001D8DC7 /* AppDelegate.swift in Sources */,
 				C0EE095F246386A4002A391E /* EspecialidadeTableViewController.swift in Sources */,
 				C02445ED246B8EB40045A4CC /* MainViewController.swift in Sources */,
@@ -417,9 +442,11 @@
 				C0DC543E246C490300C6D7EA /* Endereco.swift in Sources */,
 				C0EE096324639033002A391E /* EspecialidadeViewController.swift in Sources */,
 				C0B3E876246C2A94007DEF17 /* CoberturaTableViewController.swift in Sources */,
+				C0D632762488165B00F4FD49 /* FormaPagamento.swift in Sources */,
 				C0DC5457246C82E100C6D7EA /* Usuario.swift in Sources */,
 				C050FD6F2463A8F800F73B5E /* EspecialidadeService.swift in Sources */,
 				C0DC5438246C46FA00C6D7EA /* PacienteViewController.swift in Sources */,
+				C0D6327E2488188E00F4FD49 /* RegistroPagamento.swift in Sources */,
 				C0B3E874246C2A94007DEF17 /* Cobertura.swift in Sources */,
 				C0DC5461246C949600C6D7EA /* MedicoConsultaTableViewCell.swift in Sources */,
 				C050FD722463B13200F73B5E /* UIUtilities.swift in Sources */,
@@ -432,6 +459,7 @@
 				C0DC5439246C46FA00C6D7EA /* PacienteTableViewController.swift in Sources */,
 				C0B3E866246BA543007DEF17 /* Medico.swift in Sources */,
 				C0DC5469246C988E00C6D7EA /* InformacoesReceitasExamesTableViewController.swift in Sources */,
+				C0D632822488195B00F4FD49 /* RegistroRequisicaoExames.swift in Sources */,
 				C0B3E867246BA543007DEF17 /* MedicoViewController.swift in Sources */,
 				C0DC5465246C950700C6D7EA /* CoberturaConsultaTableViewController.swift in Sources */,
 				C0DC5467246C96D700C6D7EA /* PacienteConsultaTableViewController.swift in Sources */,
