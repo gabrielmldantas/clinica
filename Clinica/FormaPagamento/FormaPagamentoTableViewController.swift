@@ -1,18 +1,18 @@
 //
-//  ConsultaTableViewController.swift
+//  FormaPagamentoTableViewController.swift
 //  Clinica
 //
-//  Created by Gabriel on 2020-05-13.
+//  Created by Gabriel on 2020-05-06.
 //  Copyright © 2020 Gabriel. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 
-class ConsultaTableViewController: UITableViewController {
+class FormaPagamentoTableViewController: UITableViewController, CrudViewDelegate {
 
-    private var consultas = [Consulta]()
-    private let consultaService = ConsultaService()
+    private var formasPagamento = [FormaPagamento]()
+    private let formaPagamentoService = FormaPagamentoService()
     private let loadingIndicator = UIUtilities.createLoadingIndicator()
     private var selectedIndex : Int?
     
@@ -20,7 +20,7 @@ class ConsultaTableViewController: UITableViewController {
         super.viewDidLoad()
         
         refreshControl = UIRefreshControl()
-        refreshControl?.attributedTitle = NSAttributedString(string: "Atualizando consultas...")
+        refreshControl?.attributedTitle = NSAttributedString(string: "Atualizando formas de pagamento...")
         refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         
         reloadTable()
@@ -33,50 +33,41 @@ class ConsultaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return consultas.count
+        return formasPagamento.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConsultaTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let consulta = consultas[indexPath.row]
-        cell.nomePaciente.text = consulta.paciente?.nome
-        cell.cpfPaciente.text = consulta.paciente?.cpf
-        cell.nomeMedico.text = consulta.medico?.nome
-        cell.crmMedico.text = consulta.medico?.crm
-        cell.dataConsulta.text = consulta.data
+        let formaPagamento = formasPagamento[indexPath.row]
+        cell.textLabel?.text = formaPagamento.descricao
         
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            _ = formaPagamentoService.deleteFormaPagamento(formasPagamento[indexPath.row].id!, completionHandler: self.onCompleteDeleteCobertura)
+        }
     }
     
     // MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedIndex = indexPath.row
-        self.performSegue(withIdentifier: "AcoesConsulta", sender: nil)
+        self.performSegue(withIdentifier: "AdicionarFormaPagamento", sender: nil)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            _ = consultaService.deleteConsulta(consultas[indexPath.row].id!, completionHandler: self.onCompleteDeleteConsulta)
-        }
     }
 
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nextController = segue.destination as? FinalizarConsultaTableViewController {
+        if let nextController = segue.destination as? FormaPagamentoViewController {
+            nextController.crudViewDelegate = self
             if let selectedIndex = self.selectedIndex {
-                nextController.consulta = consultas[selectedIndex]
-                nextController.consultaTableViewController = self
+                nextController.formaPagamento = formasPagamento[selectedIndex]
                 self.selectedIndex = nil
             }
-        } else if let nextController = segue.destination as? PacienteConsultaTableViewController {
-            nextController.consultaTableViewController = self
-        } else if let nextController = segue.destination as? AcoesConsultaTableViewController {
-            nextController.consulta = consultas[selectedIndex!]
-            nextController.tableViewController = self
         }
     }
     
@@ -84,12 +75,18 @@ class ConsultaTableViewController: UITableViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // MARK: CrudViewDelegate
+    
+    func didSave(value: Any) {
+        reloadTable()
+    }
+    
     // MARK: Private methods
     
-    private func onCompleteLoadConsultas(response: DataResponse<CrudResultsResponse<Consulta>, AFError>) {
+    private func onCompleteLoadFormasPagamento(response: DataResponse<CrudResultsResponse<FormaPagamento>, AFError>) {
         switch response.result {
         case let .success(crudResponse):
-            self.consultas = crudResponse.results
+            self.formasPagamento = crudResponse.results
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
@@ -114,24 +111,33 @@ class ConsultaTableViewController: UITableViewController {
     }
     
     @objc private func handleRefreshControl(_ sender: Any) {
-        _ = consultaService.loadConsultas(completionHandler: self.onCompleteLoadConsultas)
+        _ = formaPagamentoService.loadFormasPagamento(completionHandler: self.onCompleteLoadFormasPagamento)
     }
     
-    func reloadTable() {
+    private func reloadTable() {
         refreshControl?.beginRefreshing()
         handleRefreshControl(self)
     }
-
-    private func onCompleteDeleteConsulta(response: DataResponse<Data?, AFError>) {
+    
+    private func onCompleteDeleteCobertura(response: DataResponse<Data?, AFError>) {
         switch response.result {
         case .success:
             self.reloadTable()
         case let .failure(error):
             DispatchQueue.main.async {
+                var errorMessage = error.errorDescription ?? "Erro desconhecido, por favor tente novamente"
+                if response.data != nil {
+                    let message = String(bytes: response.data!, encoding: .utf8)!
+                    if !message.isEmpty {
+                        errorMessage = message
+                    }
+                }
                 let alert = UIUtilities.createDefaultAlert(
                     title: "Erro",
-                    message: error.errorDescription ?? "Erro desconhecido, por favor tente novamente")
-                UIUtilities.showAlert(controller: self, alert: alert)
+                    message: errorMessage)
+                self.loadingIndicator
+                    .dismiss(animated: true,
+                             completion: { UIUtilities.showAlert(controller: self, alert: alert) })
             }
         }
     }

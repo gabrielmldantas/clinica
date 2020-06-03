@@ -62,7 +62,7 @@ class ConsultaService: NSObject {
         .response(completionHandler: completionHandler)
     }
     
-    func registrarPagamentos(_ idConsulta: Int, registroPagamento: RegistroPagamento, completionHandler: @escaping (DataResponse<Data?, AFError>) -> Void) -> DataRequest {
+    func registrarPagamentos(_ idConsulta: Int, registroPagamento: RegistroPagamento, completionHandler: @escaping (DataResponse<Consulta, AFError>) -> Void) -> DataRequest {
 
         return AF
         .request("\(baseUrl)/\(idConsulta)/pagamento",
@@ -71,10 +71,10 @@ class ConsultaService: NSObject {
                  encoder: JSONParameterEncoder.default,
                  headers: headers)
         .validate()
-        .response(completionHandler: completionHandler)
+        .responseObject(completionHandler: completionHandler)
     }
     
-    func requisitarExames(_ idConsulta: Int, registroRequisicaoExames: RegistroRequisicaoExames, completionHandler: @escaping (DataResponse<Data?, AFError>) -> Void) -> DataRequest {
+    func requisitarExames(_ idConsulta: Int, registroRequisicaoExames: RegistroRequisicaoExames, completionHandler: @escaping (DataResponse<Consulta, AFError>) -> Void) -> DataRequest {
 
         return AF
         .request("\(baseUrl)/\(idConsulta)/exames",
@@ -83,10 +83,10 @@ class ConsultaService: NSObject {
                  encoder: JSONParameterEncoder.default,
                  headers: headers)
         .validate()
-        .response(completionHandler: completionHandler)
+        .responseObject(completionHandler: completionHandler)
     }
     
-    func registrarReceitaMedica(_ idConsulta: Int, registroReceitaMedica: RegistroReceitaMedica, completionHandler: @escaping (DataResponse<Data?, AFError>) -> Void) -> DataRequest {
+    func registrarReceitaMedica(_ idConsulta: Int, registroReceitaMedica: RegistroReceitaMedica, completionHandler: @escaping (DataResponse<Consulta, AFError>) -> Void) -> DataRequest {
 
         return AF
         .request("\(baseUrl)/\(idConsulta)/receita",
@@ -95,6 +95,6 @@ class ConsultaService: NSObject {
                  encoder: JSONParameterEncoder.default,
                  headers: headers)
         .validate()
-        .response(completionHandler: completionHandler)
+        .responseObject(completionHandler: completionHandler)
     }
 }

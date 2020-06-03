@@ -11,7 +11,7 @@ import ObjectMapper
 class Pagamento: Mappable, Encodable {
 
     var id: Int?
-    var valor: Float?
+    var valor: Double?
     var dataPagamento: String?
     var formaPagamento: FormaPagamento?
     

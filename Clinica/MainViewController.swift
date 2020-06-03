@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         "Médico",
         "Paciente",
         "Cobertura",
+        "Formas de\nPagamento",
         "Consulta"
     ]
     
@@ -69,6 +70,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.performSegue(withIdentifier: "Usuario", sender: nil)
             } else if selectedMenu == "Consulta" {
                 self.performSegue(withIdentifier: "Consulta", sender: nil)
+            } else if selectedMenu == "Formas de\nPagamento" {
+                self.performSegue(withIdentifier: "FormaPagamento", sender: nil)
             }
         }
     }

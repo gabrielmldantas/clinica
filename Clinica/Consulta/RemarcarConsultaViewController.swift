@@ -1,35 +1,25 @@
 //
-//  FinalizarConsultaTableViewController.swift
+//  RemarcarConsultaViewController.swift
 //  Clinica
 //
-//  Created by Gabriel on 2020-05-16.
+//  Created by Gabriel Morrison on 2020-06-03.
 //  Copyright © 2020 Gabriel. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 
-class FinalizarConsultaTableViewController: UITableViewController {
+class RemarcarConsultaViewController: UITableViewController {
 
     @IBOutlet weak var dataConsulta: UITextField!
-    @IBOutlet weak var nomeMedico: UILabel!
-    @IBOutlet weak var crmMedico: UILabel!
-    @IBOutlet weak var especialidadeMedico: UILabel!
-    @IBOutlet weak var nomePaciente: UILabel!
-    @IBOutlet weak var cpfPaciente: UILabel!
-    @IBOutlet weak var labelCobertura: UILabel!
-    @IBOutlet weak var formaPagamento: UITextField!
-    @IBOutlet weak var valorConsulta: UITextField!
-    @IBOutlet weak var exames: UITextView!
-    @IBOutlet weak var receitaMedica: UITextView!
     
-    var consulta: Consulta!
-    var consultaTableViewController: ConsultaTableViewController!
     private let dataConsultaPicker = UIDatePicker()
     private let dateFormatter = DateFormatter()
     private let loadingIndicator = UIUtilities.createLoadingIndicator()
-    
     private let consultaService = ConsultaService()
+    
+    var consulta: Consulta!
+    var acoesViewController: AcoesConsultaTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,28 +27,7 @@ class FinalizarConsultaTableViewController: UITableViewController {
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm"
         configureDatePicker()
         
-        nomeMedico.text = consulta.medico?.nome
-        crmMedico.text = consulta.medico?.crm
-        especialidadeMedico.text = consulta.medico?.especialidade?.descricao
-        nomePaciente.text = consulta.paciente?.nome
-        cpfPaciente.text = consulta.paciente?.cpf
-        labelCobertura.text = consulta.cobertura?.descricao
         dataConsulta.text = consulta.data
-    }
-    
-    @IBAction func finalizarConsulta(_ sender: Any) {
-        if dataConsulta.text?.count ?? 0 == 0 {
-            let alert = UIUtilities.createDefaultAlert(title: "Erro", message: "Selecione a data da consulta para finalizar.")
-            UIUtilities.showAlert(controller: self, alert: alert)
-        }
-        
-        consulta.data = dataConsulta.text
-        
-        if consulta.id == nil {
-            _ = consultaService.createConsulta(consulta, completionHandler: self.onCompleteSaveConsulta)
-        } else {
-            _ = consultaService.updateConsulta(consulta, completionHandler: self.onCompleteSaveConsulta)
-        }
     }
     
     private func configureDatePicker() {
@@ -99,14 +68,25 @@ class FinalizarConsultaTableViewController: UITableViewController {
         dataConsulta.inputAccessoryView = createDatePickerToolbar()
     }
     
+    @IBAction func finalizarConsulta(_ sender: Any) {
+        if dataConsulta.text?.count ?? 0 == 0 {
+            let alert = UIUtilities.createDefaultAlert(title: "Erro", message: "Selecione a data da consulta para finalizar.")
+            UIUtilities.showAlert(controller: self, alert: alert)
+        }
+        
+        consulta.data = dataConsulta.text
+        _ = consultaService.updateConsulta(consulta, completionHandler: self.onCompleteSaveConsulta)
+    }
+    
     private func onCompleteSaveConsulta(response: DataResponse<Consulta, AFError>) {
         switch response.result {
-        case .success:
+        case let .success(result):
+            acoesViewController.consulta = result
             DispatchQueue.main.async {
+                self.acoesViewController.reload()
                 self.loadingIndicator.dismiss(
                     animated: true, completion: {
-                        self.navigationController?.popToViewController(self.consultaTableViewController, animated: true)
-                        self.consultaTableViewController.reloadTable()
+                        self.navigationController?.popViewController(animated: true)
                 })
             }
         case let .failure(error):
